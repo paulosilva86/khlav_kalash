@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
   before_create :set_defaults
 
+  validates_format_of :email_address, with: URI::MailTo::EMAIL_REGEXP
+
   UNIT_PRICE_CENTS = 299
   CURRENCY = 'USD'.freeze
 
