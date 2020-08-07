@@ -1,3 +1,5 @@
+require './app/core/create_payment_intent'
+
 class OrdersController < ApplicationController
   include HttpBasicAuthenticatable
 
@@ -18,6 +20,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @payment_intent = CreatePaymentIntent.run(299, 'usd')
   end
 
   # GET /orders/1/edit
