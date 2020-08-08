@@ -68,7 +68,7 @@ class OrdersController < ApplicationController
 
   def permalink
     @order = Order.find_by_permalink params[:permalink]
-    @payment_intent = CreatePaymentIntent.run(299, 'usd')
+    @payment_intent = CreatePaymentIntent.run(299, 'usd', @order)
   end
 
   private
