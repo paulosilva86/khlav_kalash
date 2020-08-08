@@ -20,7 +20,6 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
-    @payment_intent = CreatePaymentIntent.run(299, 'usd')
   end
 
   # GET /orders/1/edit
@@ -69,6 +68,7 @@ class OrdersController < ApplicationController
 
   def permalink
     @order = Order.find_by_permalink params[:permalink]
+    @payment_intent = CreatePaymentIntent.run(299, 'usd')
   end
 
   private

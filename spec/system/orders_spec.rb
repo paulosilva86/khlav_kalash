@@ -12,7 +12,7 @@ RSpec.describe "Orders", type: :system do
     fill_in "Postal code", :with => "35001"
     fill_in "Email address", :with => "user@example.com"
 
-    click_button "Pay $2.99"
+    click_button "Place Order"
 
     expect(page).to have_text("Order was successfully created.")
   end
@@ -20,7 +20,7 @@ RSpec.describe "Orders", type: :system do
   it "does not allow the user to create an order successfully" do
     visit "/orders/new"
 
-    click_button "Pay $2.99"
+    click_button "Place Order"
 
     expect(page).to have_text("errors prohibited this order from being saved")
   end
