@@ -28,6 +28,11 @@ Install the dependencies
 bundle install
 ```
 
+Run migrations
+```
+rake db:migrate
+```
+
 Start the puma server with
 ```
 rails s
